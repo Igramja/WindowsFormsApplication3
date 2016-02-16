@@ -36,7 +36,7 @@ namespace ClassLibrary1.DAL
                 cmd.Parameters.Add("vozilo", SqlDbType.Int);
                 cmd.Parameters["vozilo"].Value = model.vozilo;
 
-                cmd.Parameters.Add("vrijemeizn", SqlDbType.DateTime);
+                cmd.Parameters.Add("vrijemeizn", SqlDbType.DateTime2);
                 cmd.Parameters["vrijemeizn"].Value = model.vrijemeizn;
 
 

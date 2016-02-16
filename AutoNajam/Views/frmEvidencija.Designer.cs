@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Unos_osoba_combobox = new System.Windows.Forms.ComboBox();
             this.Unos_vozilo_combobox = new System.Windows.Forms.ComboBox();
             this.unos_najam_button = new System.Windows.Forms.Button();
@@ -83,6 +83,7 @@
             this.Unos_vozilo_combobox.Name = "Unos_vozilo_combobox";
             this.Unos_vozilo_combobox.Size = new System.Drawing.Size(121, 21);
             this.Unos_vozilo_combobox.TabIndex = 1;
+            this.Unos_vozilo_combobox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Unos_vozilo_combobox_MouseClick);
             // 
             // unos_najam_button
             // 
@@ -92,6 +93,7 @@
             this.unos_najam_button.TabIndex = 4;
             this.unos_najam_button.Text = "Unos";
             this.unos_najam_button.UseVisualStyleBackColor = true;
+            this.unos_najam_button.Click += new System.EventHandler(this.unos_najam_button_Click);
             // 
             // refresh_prikaz
             // 
@@ -280,46 +282,53 @@
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle7;
             this.id.HeaderText = "#";
             this.id.Name = "id";
             // 
             // ime
             // 
             this.ime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.ime.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ime.DataPropertyName = "ime";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.ime.DefaultCellStyle = dataGridViewCellStyle8;
             this.ime.HeaderText = "Ime";
             this.ime.Name = "ime";
             // 
             // prezime
             // 
             this.prezime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prezime.DataPropertyName = "prezime";
             this.prezime.HeaderText = "Prezime";
             this.prezime.Name = "prezime";
             // 
             // naziv
             // 
             this.naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.naziv.DataPropertyName = "naziv";
             this.naziv.HeaderText = "Naziv Vozila";
             this.naziv.Name = "naziv";
             // 
             // vrijemeizn
             // 
             this.vrijemeizn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.vrijemeizn.DataPropertyName = "vrijemeizn";
             this.vrijemeizn.HeaderText = "Vrijeme iznajmljivanja";
             this.vrijemeizn.Name = "vrijemeizn";
             // 
             // vrijemevr
             // 
             this.vrijemevr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.vrijemevr.DataPropertyName = "vrijemevr";
             this.vrijemevr.HeaderText = "Vrijeme vraćanja";
             this.vrijemevr.Name = "vrijemevr";
             // 
             // cijena
             // 
             this.cijena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cijena.DataPropertyName = "cijena";
             this.cijena.HeaderText = "Cijena iznajmljivanja";
             this.cijena.Name = "cijena";
             // 

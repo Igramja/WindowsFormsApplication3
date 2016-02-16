@@ -64,6 +64,19 @@ namespace AutoNajam.Views
             izracun_vozilo_combobox.ValueMember = "cijena";
             izracun_vozilo_combobox.DisplayMember = "naziv" ;
         }
+        private void Unos_osoba_combobox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Unos_osoba_combobox.DataSource = OsobaViewModel.ispisOsoba();
+            Unos_osoba_combobox.ValueMember = "id";
+            Unos_osoba_combobox.DisplayMember = "oib";
+        }
+
+        private void Unos_vozilo_combobox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Unos_vozilo_combobox.DataSource = VoziloViewModel.ispisVozila();
+            Unos_vozilo_combobox.ValueMember = "id";
+            Unos_vozilo_combobox.DisplayMember = "naziv";
+        }
 
         private void frmEvidencija_Load(object sender, EventArgs e)
         {
@@ -83,11 +96,10 @@ namespace AutoNajam.Views
             dataGridView1.Refresh();
         }
 
-        private void Unos_osoba_combobox_MouseClick(object sender, MouseEventArgs e)
+        private void unos_najam_button_Click(object sender, EventArgs e)
         {
-            Unos_osoba_combobox.DataSource = OsobaViewModel.ispisOsoba();
-            Unos_osoba_combobox.ValueMember = "id";
-            Unos_osoba_combobox.DisplayMember = "ime";
+            var novi = new EvidencijaViewModel();
+            novi.unosIzn(Convert.ToInt32(Unos_osoba_combobox.SelectedValue), Convert.ToInt32(Unos_vozilo_combobox.SelectedValue), datumizn_dateTimePicker.Value);
         }
     }
 }
