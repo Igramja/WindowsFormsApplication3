@@ -66,7 +66,7 @@ namespace ClassLibrary1.DAL
             }
         }
 
-        public static VoziloModel Read1Vozilo(string a,string b)
+        public static VoziloModel Read1Vozilo(string a)  //return jedan objekt VoziloModel-a
         {
             var connectionString = ConfigurationManager.ConnectionStrings["Name"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -74,16 +74,16 @@ namespace ClassLibrary1.DAL
                 var model = new VoziloModel();
                 DataTable dt = new DataTable();
                 SqlDataAdapter adapter = null;
-                adapter = new SqlDataAdapter("SELECT * FROM VOZILA WHERE " + a + " = " + b + ";", connection);
+                adapter = new SqlDataAdapter("SELECT * FROM VOZILA WHERE naziv = '" + a + "';", connection);
 
                 adapter.Fill(dt);
 
                 DataRow row = dt.Rows[0];
 
-                model.id = Convert.ToInt32(row[0]);
-                model.naziv = Convert.ToString(row[1]);
-                model.cijenaposatu = Convert.ToDecimal(row[2]);
-                model.registracija = Convert.ToString(row[3]);              
+                model.id = int.Parse(row[0].ToString());
+                model.naziv = row[1].ToString();
+                model.cijenaposatu = Convert.ToDecimal(row[2].ToString());
+                model.registracija = row[3].ToString();              
                 
                 return model;
             }

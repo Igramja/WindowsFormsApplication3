@@ -23,8 +23,14 @@ namespace AutoNajam.Views
 
         private void izracun_Click(object sender, EventArgs e)
         {
-            
-            izracunnajma_button.Text = Convert.ToString(Convert.ToInt32(comboBox3.Text) * Convert.ToInt32(textBox2.Text));
+            if ((textBox2.Text != "Trajanje iznajmljivanja") && (izracun_vozilo_combobox.Text != ""))
+            {
+                label1.Text = EvidencijaViewModel.izracunnajma(textBox2.Text, izracun_vozilo_combobox.Text) + " kn";
+            }
+            else
+            {
+                label1.Text = "Neispravan Unos";
+            }
         }
 
         private void osobe_button_Click(object sender, EventArgs e)
@@ -39,11 +45,49 @@ namespace AutoNajam.Views
             vozila.Show();
         }
 
-        private void comboBox3_MouseClick(object sender, MouseEventArgs e)
+        
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
         {
-            comboBox3.DataSource = VoziloViewModel.ispisVozila();
-            comboBox3.ValueMember = "cijena";
-            comboBox3.DisplayMember = "naziv";
+            textBox2.Text = "";
+        }
+
+        
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void izracun_vozilo_combobox_MouseClick(object sender, MouseEventArgs e)
+        {
+            izracun_vozilo_combobox.DataSource = VoziloViewModel.ispisVozila();
+            izracun_vozilo_combobox.ValueMember = "cijena";
+            izracun_vozilo_combobox.DisplayMember = "naziv" ;
+        }
+
+        private void frmEvidencija_Load(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = EvidencijaViewModel.ispisEvid();
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = bs;
+            dataGridView1.Refresh();
+        }
+
+        private void refresh_prikaz_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = EvidencijaViewModel.ispisEvid();
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = bs;
+            dataGridView1.Refresh();
+        }
+
+        private void Unos_osoba_combobox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Unos_osoba_combobox.DataSource = OsobaViewModel.ispisOsoba();
+            Unos_osoba_combobox.ValueMember = "id";
+            Unos_osoba_combobox.DisplayMember = "ime";
         }
     }
 }

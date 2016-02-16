@@ -65,8 +65,31 @@ namespace ClassLibrary1.DAL
                         
                     return ds;
             }
+
         }
-        
+        public static OsobaModel Read1Osoba(string a)  //return jedan objekt OsobaModel-a
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["Name"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                var model = new OsobaModel();
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = null;
+                adapter = new SqlDataAdapter("SELECT * FROM OSOBA WHERE oib = " + a + ";", connection);
+
+                adapter.Fill(dt);
+
+                DataRow row = dt.Rows[0];
+
+                model.id = int.Parse(row[0].ToString());
+                model.ime = row[1].ToString();
+                model.prezime = row[2].ToString();
+                model.oib = row[3].ToString();
+
+                return model;
+            }
+        }
+
 
 
 

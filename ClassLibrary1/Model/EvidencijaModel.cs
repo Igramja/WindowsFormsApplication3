@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Model
 {
-    class EvidencijaModel
+    public class EvidencijaModel
     {
        
         public int id { get; set; }
         public int osoba { get; set; }
-        public string vozilo { get; set; }
+        public int vozilo { get; set; }
         public DateTime vrijemeizn { get; set; }
         public DateTime vrijemevr { get; set; }
         public float cijena { get; set; }

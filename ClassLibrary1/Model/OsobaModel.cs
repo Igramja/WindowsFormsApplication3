@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Model
 {
-    class OsobaModel
+    public class OsobaModel
     {
           
         public int id { get; set; }
