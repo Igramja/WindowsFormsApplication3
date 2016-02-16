@@ -93,7 +93,7 @@ namespace ClassLibrary1.DAL
 
                 DataTable ds = new DataTable();
                 SqlDataAdapter adapter = null;
-                adapter = new SqlDataAdapter("SELECT * FROM EVID ", connection);
+                adapter = new SqlDataAdapter("SELECT EVID.id AS 'id', OSOBA.ime AS 'ime', OSOBA.prezime AS 'prezime', VOZILA.naziv AS 'naziv', EVID.vrijemeizn AS 'vrijemeizn', EVID.vrijemevr AS 'vrijemevr', EVID.cijena AS 'cijena' FROM EVID INNER JOIN OSOBA ON EVID.osoba = OSOBA.id INNER JOIN VOZILA ON EVID.vozilo = VOZILA.id; ", connection);
                 adapter.Fill(ds);
 
                 //ovdje treba izmjeniti SQL naredbu tako da evid_osoba bude ime i prezime osoba i evid_vozila bude naziv vozila
