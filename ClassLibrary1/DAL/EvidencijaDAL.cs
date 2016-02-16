@@ -20,12 +20,13 @@ namespace ClassLibrary1.DAL
             var model = new EvidencijaModel();
             model.osoba = osoba;
             model.vozilo = vozilo;
-            
+            model.vrijemeizn = vrijemeizn;
+
             var connectionString = ConfigurationManager.ConnectionStrings["Name"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO EVID ( osoba, vozilo, vrijemeizn, ) VALUES (  @osoba, @vozilo, @vrijemeizn )"); 
+                SqlCommand cmd = new SqlCommand("INSERT INTO EVID ( osoba, vozilo, vrijemeizn ) VALUES (  @osoba, @vozilo, @vrijemeizn )"); 
 
                 
                 cmd.Connection = connection;
