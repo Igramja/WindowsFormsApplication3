@@ -8,7 +8,7 @@ namespace ClassLibrary1.Model
 {
     class OsobaModel
     {
-        
+          
         public int id { get; set; }
         public string ime  { get; set; }
         public string prezime { get; set; }
