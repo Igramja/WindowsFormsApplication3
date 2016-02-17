@@ -15,6 +15,7 @@ namespace AutoNajam.Views
 {
     public partial class frmEvidencija : Form
     {
+        DateTime vrijemeiznajmljivanja;
         public frmEvidencija()
         {
             InitializeComponent();
@@ -85,6 +86,7 @@ namespace AutoNajam.Views
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = bs;
             dataGridView1.Refresh();
+            
         }
 
         private void refresh_prikaz_Click(object sender, EventArgs e)
@@ -98,8 +100,69 @@ namespace AutoNajam.Views
 
         private void unos_najam_button_Click(object sender, EventArgs e)
         {
-            var novi = new EvidencijaViewModel();
-            novi.unosIzn(Convert.ToInt32(Unos_osoba_combobox.SelectedValue), Convert.ToInt32(Unos_vozilo_combobox.SelectedValue), datumizn_dateTimePicker.Value);
+            if ((Unos_osoba_combobox.Text != "") && (Unos_vozilo_combobox.Text != ""))
+            {
+                var novi = new EvidencijaViewModel();
+                novi.unosIzn(Convert.ToInt32(Unos_osoba_combobox.SelectedValue), Convert.ToInt32(Unos_vozilo_combobox.SelectedValue), datumizn_dateTimePicker.Value);
+                unos_novi_label.Text = "Unos OK!";
+            }
+            else
+            {
+                unos_novi_label.Text = "Unos Neispravan!";
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {   
+
+            
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+
+                vrijemeiznajmljivanja = Convert.ToDateTime(selectedRow.Cells["vrijemeizn"].Value);
+
+                naziv_vozila_textbox.Text = Convert.ToString(selectedRow.Cells["naziv"].Value);
+
+                broj_najma_textbox.Text = Convert.ToString(selectedRow.Cells["id"].Value); 
+            }
+            else
+
+                broj_najma_textbox.Text = "#";
+        }
+
+        public void unos_krajnajma_button_Click(object sender, EventArgs e)
+        {
+            if (vrijemeiznajmljivanja < dateTimePicker1.Value)
+            {
+                decimal autocijena = VoziloViewModel.cijenaauta(naziv_vozila_textbox.Text);
+                var novivr = new EvidencijaViewModel();
+                novivr.unosVr(broj_najma_textbox.Text, dateTimePicker1.Value, cijenaizn(vrijemeiznajmljivanja, dateTimePicker1.Value, autocijena));
+                unos_vr_label.Text ="Unos OK!";
+            }
+            else
+            {
+                unos_vr_label.Text = "Unos neispravan!";
+            }
+        }
+
+        public decimal cijenaizn(DateTime vrijemeizn, DateTime vrijemevra, decimal cijena)
+        {
+            TimeSpan sati = vrijemevra.Subtract(vrijemeizn);
+            return Convert.ToInt32(sati.TotalHours) * cijena;
+        }
+
+        private void kraj_najma_group_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmPotvrda potvrda = new frmPotvrda();
+            potvrda.Show();
         }
     }
 }

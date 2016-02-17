@@ -201,6 +201,7 @@
             this.ClientSize = new System.Drawing.Size(467, 461);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmVozila";
             this.Text = "Vozila";
             this.Load += new System.EventHandler(this.frmVozila_Load);

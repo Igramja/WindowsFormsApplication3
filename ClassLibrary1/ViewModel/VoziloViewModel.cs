@@ -24,7 +24,12 @@ namespace ClassLibrary1.ViewModel
         {
             return VozilaDAL.ReadVozila();
         }
-        
+        public static decimal cijenaauta(string a)
+        {
+            decimal cijena = VozilaDAL.Read1Vozilo(a).cijenaposatu;
+            return cijena;           
+
+        }
 
     }
 }

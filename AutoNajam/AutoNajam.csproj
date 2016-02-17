@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +69,12 @@
     <Compile Include="Views\frmVozila.Designer.cs">
       <DependentUpon>frmVozila.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmPotvrda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmPotvrda.Designer.cs">
+      <DependentUpon>frmPotvrda.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmVozila.resx">
       <DependentUpon>frmVozila.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmPotvrda.resx">
+      <DependentUpon>frmPotvrda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

@@ -202,6 +202,7 @@
             this.ClientSize = new System.Drawing.Size(470, 464);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmOsobe";
             this.Text = "Osobe";
             this.Load += new System.EventHandler(this.frmOsobe_Load);

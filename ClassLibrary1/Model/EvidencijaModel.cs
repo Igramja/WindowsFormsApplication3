@@ -14,7 +14,7 @@ namespace ClassLibrary1.Model
         public int vozilo { get; set; }
         public DateTime vrijemeizn { get; set; }
         public DateTime vrijemevr { get; set; }
-        public float cijena { get; set; }
+        public decimal cijena { get; set; }
         public string ime { get; set; }
         public string prezime { get; set; }
     }

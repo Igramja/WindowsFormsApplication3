@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EVIDataset" targetNamespace="http://tempuri.org/EVIDataset.xsd" xmlns:mstns="http://tempuri.org/EVIDataset.xsd" xmlns="http://tempuri.org/EVIDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="EVIDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EVIDataset" msprop:Generator_UserDSName="EVIDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ispisEvid" msprop:Generator_TableClassName="ispisEvidDataTable" msprop:Generator_TableVarName="tableispisEvid" msprop:Generator_TablePropName="ispisEvid" msprop:Generator_RowDeletingName="ispisEvidRowDeleting" msprop:Generator_RowChangingName="ispisEvidRowChanging" msprop:Generator_RowEvHandlerName="ispisEvidRowChangeEventHandler" msprop:Generator_RowDeletedName="ispisEvidRowDeleted" msprop:Generator_UserTableName="ispisEvid" msprop:Generator_RowChangedName="ispisEvidRowChanged" msprop:Generator_RowEvArgName="ispisEvidRowChangeEvent" msprop:Generator_RowClassName="ispisEvidRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="ime" msprop:Generator_ColumnVarNameInTable="columnime" msprop:Generator_ColumnPropNameInRow="ime" msprop:Generator_ColumnPropNameInTable="imeColumn" msprop:Generator_UserColumnName="ime" type="xs:string" minOccurs="0" />
+              <xs:element name="prezime" msprop:Generator_ColumnVarNameInTable="columnprezime" msprop:Generator_ColumnPropNameInRow="prezime" msprop:Generator_ColumnPropNameInTable="prezimeColumn" msprop:Generator_UserColumnName="prezime" type="xs:string" minOccurs="0" />
+              <xs:element name="oib" msprop:Generator_ColumnVarNameInTable="columnoib" msprop:Generator_ColumnPropNameInRow="oib" msprop:Generator_ColumnPropNameInTable="oibColumn" msprop:Generator_UserColumnName="oib" type="xs:string" minOccurs="0" />
+              <xs:element name="naziv" msprop:Generator_ColumnVarNameInTable="columnnaziv" msprop:Generator_ColumnPropNameInRow="naziv" msprop:Generator_ColumnPropNameInTable="nazivColumn" msprop:Generator_UserColumnName="naziv" type="xs:string" minOccurs="0" />
+              <xs:element name="registracija" msprop:Generator_ColumnVarNameInTable="columnregistracija" msprop:Generator_ColumnPropNameInRow="registracija" msprop:Generator_ColumnPropNameInTable="registracijaColumn" msprop:Generator_UserColumnName="registracija" type="xs:string" minOccurs="0" />
+              <xs:element name="vrijemeizn" msprop:Generator_ColumnVarNameInTable="columnvrijemeizn" msprop:Generator_ColumnPropNameInRow="vrijemeizn" msprop:Generator_ColumnPropNameInTable="vrijemeiznColumn" msprop:Generator_UserColumnName="vrijemeizn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="vrijemevr" msprop:Generator_ColumnVarNameInTable="columnvrijemevr" msprop:Generator_ColumnPropNameInRow="vrijemevr" msprop:Generator_ColumnPropNameInTable="vrijemevrColumn" msprop:Generator_UserColumnName="vrijemevr" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cijena" msprop:Generator_ColumnVarNameInTable="columncijena" msprop:Generator_ColumnPropNameInRow="cijena" msprop:Generator_ColumnPropNameInTable="cijenaColumn" msprop:Generator_UserColumnName="cijena" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

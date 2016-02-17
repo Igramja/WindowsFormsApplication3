@@ -56,21 +56,23 @@ namespace ClassLibrary1.DAL
 
             var model = new EvidencijaModel();
             
+            
             model.vrijemevr = vrijemevr ;
+            model.cijena = cijena;
 
             var connectionString = ConfigurationManager.ConnectionStrings["Name"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO EVID ( vrijemevr, cijena ) VALUES (  @vrijemevr, @cijena ) WHERE id = " + id);
+                SqlCommand cmd = new SqlCommand("UPDATE EVID SET vrijemevr=@vrijemevr , cijena=@cijena WHERE id = " + id);
 
 
                 cmd.Connection = connection;
 
-                cmd.Parameters.Add("vrijemevr", SqlDbType.Int);
+                cmd.Parameters.Add("vrijemevr", SqlDbType.DateTime2);
                 cmd.Parameters["vrijemevr"].Value = model.vrijemevr;
 
-                cmd.Parameters.Add("cijena", SqlDbType.Int);
+                cmd.Parameters.Add("cijena", SqlDbType.Decimal);
                 cmd.Parameters["cijena"].Value = model.cijena;
                 
 
@@ -93,7 +95,7 @@ namespace ClassLibrary1.DAL
 
                 DataTable ds = new DataTable();
                 SqlDataAdapter adapter = null;
-                adapter = new SqlDataAdapter("SELECT EVID.id AS 'id', OSOBA.ime AS 'ime', OSOBA.prezime AS 'prezime', VOZILA.naziv AS 'naziv', EVID.vrijemeizn AS 'vrijemeizn', EVID.vrijemevr AS 'vrijemevr', EVID.cijena AS 'cijena' FROM EVID INNER JOIN OSOBA ON EVID.osoba = OSOBA.id INNER JOIN VOZILA ON EVID.vozilo = VOZILA.id; ", connection);
+                adapter = new SqlDataAdapter("SELECT EVID.id AS 'id', OSOBA.ime AS 'ime', OSOBA.prezime AS 'prezime' ,OSOBA.oib AS 'oib', VOZILA.naziv AS 'naziv', VOZILA.registracija AS 'registracija', EVID.vrijemeizn AS 'vrijemeizn', EVID.vrijemevr AS 'vrijemevr', EVID.cijena AS 'cijena' FROM EVID INNER JOIN OSOBA ON EVID.osoba = OSOBA.id INNER JOIN VOZILA ON EVID.vozilo = VOZILA.id; ", connection);
                 adapter.Fill(ds);
 
                 //ovdje treba izmjeniti SQL naredbu tako da evid_osoba bude ime i prezime osoba i evid_vozila bude naziv vozila

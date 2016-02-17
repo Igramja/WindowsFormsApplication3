@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Unos_osoba_combobox = new System.Windows.Forms.ComboBox();
             this.Unos_vozilo_combobox = new System.Windows.Forms.ComboBox();
             this.unos_najam_button = new System.Windows.Forms.Button();
@@ -43,20 +43,26 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.izracun_vozilo_combobox = new System.Windows.Forms.ComboBox();
             this.izracuncijene_group = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.unos_vozilaiosoba_group = new System.Windows.Forms.GroupBox();
             this.unos_najma_group = new System.Windows.Forms.GroupBox();
             this.kraj_najma_group = new System.Windows.Forms.GroupBox();
-            this.unos_krajnajma_button = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.unos_krajnajma_button = new System.Windows.Forms.Button();
+            this.broj_najma_textbox = new System.Windows.Forms.TextBox();
+            this.naziv_vozila_textbox = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oib = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registracija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vrijemeizn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vrijemevr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unos_vr_label = new System.Windows.Forms.Label();
+            this.unos_novi_label = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.izracuncijene_group.SuspendLayout();
@@ -87,7 +93,7 @@
             // 
             // unos_najam_button
             // 
-            this.unos_najam_button.Location = new System.Drawing.Point(95, 97);
+            this.unos_najam_button.Location = new System.Drawing.Point(10, 97);
             this.unos_najam_button.Name = "unos_najam_button";
             this.unos_najam_button.Size = new System.Drawing.Size(75, 23);
             this.unos_najam_button.TabIndex = 4;
@@ -122,7 +128,9 @@
             this.id,
             this.ime,
             this.prezime,
+            this.oib,
             this.naziv,
+            this.registracija,
             this.vrijemeizn,
             this.vrijemevr,
             this.cijena});
@@ -131,6 +139,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(787, 283);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // osobe_button
             // 
@@ -166,11 +175,11 @@
             // 
             this.datumizn_dateTimePicker.CustomFormat = "dd.MM.yyy  H:m";
             this.datumizn_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datumizn_dateTimePicker.Location = new System.Drawing.Point(10, 48);
+            this.datumizn_dateTimePicker.Location = new System.Drawing.Point(10, 62);
             this.datumizn_dateTimePicker.Name = "datumizn_dateTimePicker";
             this.datumizn_dateTimePicker.Size = new System.Drawing.Size(256, 20);
             this.datumizn_dateTimePicker.TabIndex = 10;
-            this.datumizn_dateTimePicker.Value = new System.DateTime(2016, 2, 11, 10, 13, 47, 0);
+            this.datumizn_dateTimePicker.Value = new System.DateTime(2016, 2, 17, 12, 34, 57, 0);
             // 
             // textBox2
             // 
@@ -205,6 +214,17 @@
             this.izracuncijene_group.TabStop = false;
             this.izracuncijene_group.Text = "Izračun cijene";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 133);
+            this.label1.MinimumSize = new System.Drawing.Size(180, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Cijena";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // unos_vozilaiosoba_group
             // 
             this.unos_vozilaiosoba_group.Controls.Add(this.osobe_button);
@@ -218,6 +238,7 @@
             // 
             // unos_najma_group
             // 
+            this.unos_najma_group.Controls.Add(this.unos_novi_label);
             this.unos_najma_group.Controls.Add(this.Unos_osoba_combobox);
             this.unos_najma_group.Controls.Add(this.Unos_vozilo_combobox);
             this.unos_najma_group.Controls.Add(this.datumizn_dateTimePicker);
@@ -231,43 +252,18 @@
             // 
             // kraj_najma_group
             // 
+            this.kraj_najma_group.Controls.Add(this.unos_vr_label);
+            this.kraj_najma_group.Controls.Add(this.naziv_vozila_textbox);
             this.kraj_najma_group.Controls.Add(this.dateTimePicker1);
             this.kraj_najma_group.Controls.Add(this.unos_krajnajma_button);
-            this.kraj_najma_group.Controls.Add(this.textBox1);
+            this.kraj_najma_group.Controls.Add(this.broj_najma_textbox);
             this.kraj_najma_group.Location = new System.Drawing.Point(290, 13);
             this.kraj_najma_group.Name = "kraj_najma_group";
             this.kraj_najma_group.Size = new System.Drawing.Size(162, 126);
             this.kraj_najma_group.TabIndex = 19;
             this.kraj_najma_group.TabStop = false;
             this.kraj_najma_group.Text = "Vozilo vraćeno";
-            // 
-            // unos_krajnajma_button
-            // 
-            this.unos_krajnajma_button.Location = new System.Drawing.Point(45, 97);
-            this.unos_krajnajma_button.Name = "unos_krajnajma_button";
-            this.unos_krajnajma_button.Size = new System.Drawing.Size(75, 23);
-            this.unos_krajnajma_button.TabIndex = 2;
-            this.unos_krajnajma_button.Text = "Unos";
-            this.unos_krajnajma_button.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(7, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "# najma";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 133);
-            this.label1.MinimumSize = new System.Drawing.Size(180, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Cijena";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.kraj_najma_group.Enter += new System.EventHandler(this.kraj_najma_group_Enter);
             // 
             // dateTimePicker1
             // 
@@ -277,14 +273,42 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(149, 20);
             this.dateTimePicker1.TabIndex = 11;
-            this.dateTimePicker1.Value = new System.DateTime(2016, 2, 11, 10, 13, 47, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2016, 2, 17, 12, 39, 0, 0);
+            // 
+            // unos_krajnajma_button
+            // 
+            this.unos_krajnajma_button.Location = new System.Drawing.Point(44, 76);
+            this.unos_krajnajma_button.Name = "unos_krajnajma_button";
+            this.unos_krajnajma_button.Size = new System.Drawing.Size(75, 23);
+            this.unos_krajnajma_button.TabIndex = 2;
+            this.unos_krajnajma_button.Text = "Unos";
+            this.unos_krajnajma_button.UseVisualStyleBackColor = true;
+            this.unos_krajnajma_button.Click += new System.EventHandler(this.unos_krajnajma_button_Click);
+            // 
+            // broj_najma_textbox
+            // 
+            this.broj_najma_textbox.Location = new System.Drawing.Point(7, 18);
+            this.broj_najma_textbox.Name = "broj_najma_textbox";
+            this.broj_najma_textbox.ReadOnly = true;
+            this.broj_najma_textbox.Size = new System.Drawing.Size(47, 20);
+            this.broj_najma_textbox.TabIndex = 0;
+            this.broj_najma_textbox.Text = "# najma";
+            // 
+            // naziv_vozila_textbox
+            // 
+            this.naziv_vozila_textbox.Location = new System.Drawing.Point(61, 18);
+            this.naziv_vozila_textbox.Name = "naziv_vozila_textbox";
+            this.naziv_vozila_textbox.ReadOnly = true;
+            this.naziv_vozila_textbox.Size = new System.Drawing.Size(95, 20);
+            this.naziv_vozila_textbox.TabIndex = 12;
+            this.naziv_vozila_textbox.Text = "Naziv Vozila";
             // 
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle11;
             this.id.HeaderText = "#";
             this.id.Name = "id";
             // 
@@ -292,8 +316,8 @@
             // 
             this.ime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ime.DataPropertyName = "ime";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.ime.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.ime.DefaultCellStyle = dataGridViewCellStyle12;
             this.ime.HeaderText = "Ime";
             this.ime.Name = "ime";
             // 
@@ -304,12 +328,24 @@
             this.prezime.HeaderText = "Prezime";
             this.prezime.Name = "prezime";
             // 
+            // oib
+            // 
+            this.oib.DataPropertyName = "oib";
+            this.oib.HeaderText = "OIB";
+            this.oib.Name = "oib";
+            // 
             // naziv
             // 
             this.naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.naziv.DataPropertyName = "naziv";
             this.naziv.HeaderText = "Naziv Vozila";
             this.naziv.Name = "naziv";
+            // 
+            // registracija
+            // 
+            this.registracija.DataPropertyName = "registracija";
+            this.registracija.HeaderText = "Registracija";
+            this.registracija.Name = "registracija";
             // 
             // vrijemeizn
             // 
@@ -332,17 +368,46 @@
             this.cijena.HeaderText = "Cijena iznajmljivanja";
             this.cijena.Name = "cijena";
             // 
+            // unos_vr_label
+            // 
+            this.unos_vr_label.AutoSize = true;
+            this.unos_vr_label.Location = new System.Drawing.Point(41, 108);
+            this.unos_vr_label.Name = "unos_vr_label";
+            this.unos_vr_label.Size = new System.Drawing.Size(0, 13);
+            this.unos_vr_label.TabIndex = 20;
+            this.unos_vr_label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // unos_novi_label
+            // 
+            this.unos_novi_label.AutoSize = true;
+            this.unos_novi_label.Location = new System.Drawing.Point(120, 103);
+            this.unos_novi_label.Name = "unos_novi_label";
+            this.unos_novi_label.Size = new System.Drawing.Size(0, 13);
+            this.unos_novi_label.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(334, 145);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Potvrda";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmEvidencija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 469);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.izracuncijene_group);
             this.Controls.Add(this.kraj_najma_group);
             this.Controls.Add(this.refresh_prikaz);
             this.Controls.Add(this.unos_najma_group);
             this.Controls.Add(this.unos_vozilaiosoba_group);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmEvidencija";
             this.Text = "Evidencija Najma";
             this.Load += new System.EventHandler(this.frmEvidencija_Load);
@@ -352,6 +417,7 @@
             this.izracuncijene_group.PerformLayout();
             this.unos_vozilaiosoba_group.ResumeLayout(false);
             this.unos_najma_group.ResumeLayout(false);
+            this.unos_najma_group.PerformLayout();
             this.kraj_najma_group.ResumeLayout(false);
             this.kraj_najma_group.PerformLayout();
             this.ResumeLayout(false);
@@ -376,16 +442,22 @@
         private System.Windows.Forms.GroupBox unos_najma_group;
         private System.Windows.Forms.GroupBox kraj_najma_group;
         private System.Windows.Forms.Button unos_krajnajma_button;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox broj_najma_textbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker datumizn_dateTimePicker;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox naziv_vozila_textbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn prezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oib;
         private System.Windows.Forms.DataGridViewTextBoxColumn naziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registracija;
         private System.Windows.Forms.DataGridViewTextBoxColumn vrijemeizn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vrijemevr;
         private System.Windows.Forms.DataGridViewTextBoxColumn cijena;
+        private System.Windows.Forms.Label unos_novi_label;
+        private System.Windows.Forms.Label unos_vr_label;
+        private System.Windows.Forms.Button button1;
     }
 }
