@@ -104,7 +104,7 @@ namespace AutoNajam.Views
             {
                 var novi = new EvidencijaViewModel();
                 novi.unosIzn(Convert.ToInt32(Unos_osoba_combobox.SelectedValue), Convert.ToInt32(Unos_vozilo_combobox.SelectedValue), datumizn_dateTimePicker.Value);
-                unos_novi_label.Text = "Unos OK!";
+                unos_novi_label.Text = "";
             }
             else
             {
@@ -112,7 +112,7 @@ namespace AutoNajam.Views
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        public void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {   
 
             
@@ -140,7 +140,7 @@ namespace AutoNajam.Views
                 decimal autocijena = VoziloViewModel.cijenaauta(naziv_vozila_textbox.Text);
                 var novivr = new EvidencijaViewModel();
                 novivr.unosVr(broj_najma_textbox.Text, dateTimePicker1.Value, cijenaizn(vrijemeiznajmljivanja, dateTimePicker1.Value, autocijena));
-                unos_vr_label.Text ="Unos OK!";
+                unos_vr_label.Text ="";
             }
             else
             {
@@ -161,7 +161,8 @@ namespace AutoNajam.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmPotvrda potvrda = new frmPotvrda();
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            frmPotvrda potvrda = new frmPotvrda(rowIndex);
             potvrda.Show();
         }
     }
